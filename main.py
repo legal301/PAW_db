@@ -10,7 +10,7 @@ app = Flask(__name__)
 def webhook():
     DIR = os.getcwd()
     res = Git(DIR).pull()
-    return 'Updated PythonAnywhere successfully: '+str(res), 200
+    return 'Updated PythonAnywhere successfullyy: '+str(res), 200
 
 
 if __name__ == "__main__":
