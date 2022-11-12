@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import os
 from git import Git
 
@@ -11,6 +11,11 @@ def webhook():
     DIR = os.getcwd()
     res = Git(DIR).pull()
     return 'Updated PythonAnywhere successfullyy: '+str(res), 200
+
+@app.route("/size")
+def size():
+    s = str(os.system("du -s /home")).split()
+    return jsonify({"size": s})
 
 
 if __name__ == "__main__":
